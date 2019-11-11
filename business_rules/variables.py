@@ -12,6 +12,12 @@ class BaseVariables(object):
     """ Classes that hold a collection of variables to use with the rules
     engine should inherit from this.
     """
+    def __init__(self):
+        self.variable_values = {}
+
+    def record_variable_value(self, name, value):
+        self.variable_values[name] = value
+
     @classmethod
     def get_all_variables(cls):
         methods = inspect.getmembers(cls)
